@@ -4,51 +4,58 @@
  */
 
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 public class MyFirstSwingGUI {
-	public static void main(String[] args) {
-		//1. Create and initialize an object of the JFrame class
+    public static void main(String[] args) {
+        //1. Create and initialize an object of the JFrame class
+        JFrame jframe = new JFrame();
 
-		//2. Set your JFrame object to be visible
+        //2. Set your JFrame object to be visible
+        jframe.setVisible(true);
 
-		//3. Run your program. Do you see your window? It's probably very small.
-		
-		//4. Set the default close operation to JFrame.EXIT_ON_CLOSE
+        //3. Run your program. Do you see your window? It's probably very small.
 
-		//5. Create and initialize an object of the JPanel class
+        //4. Set the default close operation to JFrame.EXIT_ON_CLOSE
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//6. Create and initialize an object of the JLabel class
+        //5. Create and initialize an object of the JPanel class
+        JPanel jpanel = new JPanel();
 
-		//7. Set the text of the JLabel to a lovely greeting.
+        //6. Create and initialize an object of the JLabel class
+        JLabel jlabel = new JLabel();
 
-		//8. Add the JPanel object to the JFrame
+        //7. Set the text of the JLabel to a lovely greeting.
+        jlabel.setText("HELLOOOOOO");
 
-		//9. Add the JLabel object to the JPanel
+        //8. Add the JPanel object to the JFrame
+        jframe.add(jpanel);
 
-		//10. Pack your JFrame.
+        //9. Add the JLabel object to the JPanel
+        jpanel.add(jlabel);
 
-		//11. Run your program again. Do you see your message.
-		
-		//12. Use the loadImage method to set the icon of the JLabel object.  
+        //10. Pack your JFrame.
+        jframe.pack();
 
-		//13. Re-pack the JFrame object.
-		
-		//14. Run the program one more time. Do you see the image?
-	}
-	
-	public static ImageIcon loadImage(){
-		try {
-			return new ImageIcon(ImageIO.read(new MyFirstSwingGUI().getClass().getResourceAsStream("java.png")));
-		} catch (IOException e) {
-			
-			return null;
-		}
-	}
+        //11. Run your program again. Do you see your message.
+
+        //12. Use the loadImage method to set the icon of the JLabel object.
+        jlabel.setIcon(loadImage());
+
+        //13. Re-pack the JFrame object.
+        jframe.pack();
+
+        //14. Run the program one more time. Do you see the image?
+    }
+
+    public static ImageIcon loadImage() {
+        try {
+            return new ImageIcon(ImageIO.read(new MyFirstSwingGUI().getClass().getResourceAsStream("java.png")));
+        } catch (IOException e) {
+
+            return null;
+        }
+    }
 }
